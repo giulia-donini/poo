@@ -15,18 +15,16 @@ public class Rational {
        return num + "/" + denom;
    }
 
-   public void mult(Rational other){
-       this.num *= other.num;
-       this.denom *= other.denom;
-
-       this.simplify();
+   public Rational mult(Rational other){
+       int newNum = this.num * other.num;
+       int newDenom = this.denom * other.denom;
+       return new Rational(newNum, newDenom);
    }
 
-    public void add(Rational other){
-        this.num = this.num * other.denom + other.num * this.denom;
-        this.denom = this.denom * other.denom;
-
-        this.simplify();
+    public Rational add(Rational other){
+        int newNum = this.num * other.denom + other.num * this.denom;
+        int newDenom = this.denom * other.denom;
+        return new Rational(newNum, newDenom);
     }
 
     public int pgcd(int a, int b) {
@@ -53,6 +51,8 @@ public class Rational {
         c.simplify();
         return c;
     }
+
+
 
 }
 
