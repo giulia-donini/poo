@@ -1,6 +1,6 @@
 public class Rational {
-   int num;
-   int denom;
+   private int num;
+   private int denom = 1;
 
    public Rational(int num, int denom) {
        if (denom == 0){
@@ -29,7 +29,7 @@ public class Rational {
         this.simplify();
     }
 
-    public int pgcd(int a, int b) {
+    private static int pgcd(int a, int b) {
         if (b == 0) {
             return a;
         } else {
@@ -37,7 +37,7 @@ public class Rational {
         }
     }
 
-    public void simplify(){
+    private void simplify(){
         int pgcdValue = pgcd(Math.abs(this.num), Math.abs(this.denom));
         this.num /= pgcdValue;
         this.denom /= pgcdValue;
